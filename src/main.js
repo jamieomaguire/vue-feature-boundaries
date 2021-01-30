@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
-import FeatureProvider from "./feature-provider/featureProvider";
-import FeatureBoundary from "./feature-boundary/FeatureBoundary";
+import FeatureProvider from "./feature/feature-provider/featureProvider";
+import FeatureBoundary from "./feature/feature-boundary/FeatureBoundary";
 
 Vue.config.productionTip = false;
 
