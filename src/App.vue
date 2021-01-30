@@ -1,17 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <feature-provider :flags="featureFlags">
+    <div id="app">
+      <feature-boundary :serverRendered="true" flag="image" :tier="3">
+        <img alt="Vue logo" src="./assets/logo.png" />
+      </feature-boundary>
+      <feature-boundary flag="hello" :tier="1">
+        <p>Hi</p>
+      </feature-boundary>
+      <feature-boundary :serverRendered="true" :tier="3">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </feature-boundary>
+    </div>
+  </feature-provider>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld
+  data() {
+    return {
+      featureFlags: {
+        hello: true,
+        image: true,
+        featureC: true,
+        featureD: false,
+        featureE: false
+      }
+    };
   }
 };
 </script>
